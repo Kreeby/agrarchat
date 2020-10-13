@@ -38,8 +38,7 @@ public class UsersFragment extends Fragment {
     private RecyclerView recyclerView;
     private UsersAdapter usersAdapter;
 
-    CircleImageView profileImage;
-    TextView username;
+
 
     FirebaseUser firebaseUser;
     DatabaseReference reference;
@@ -53,32 +52,13 @@ public class UsersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users, container, false);
 
-      firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-      profileImage = view.findViewById(R.id.circleImageView);
-      username = view.findViewById(R.id.username);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-      firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-      reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-      reference.addValueEventListener(new ValueEventListener() {
-          @Override
-          public void onDataChange(@NonNull DataSnapshot snapshot) {
-              User user = snapshot.getValue(User.class);
-              username.setText(user.getFullname());
-              if(user.getImageURL().equals("default")) {
-                  profileImage.setImageResource(R.mipmap.ic_launcher);
-              }
-              else {
-                  Glide.with(getContext()).load(user.getImageURL()).into(profileImage);
-              }
-          }
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
-          @Override
-          public void onCancelled(@NonNull DatabaseError error) {
-
-          }
-      });
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);

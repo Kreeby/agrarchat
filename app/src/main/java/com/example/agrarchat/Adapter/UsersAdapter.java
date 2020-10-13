@@ -1,6 +1,7 @@
 package com.example.agrarchat.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.agrarchat.MessageActivity;
 import com.example.agrarchat.Model.User;
 import com.example.agrarchat.R;
 
@@ -38,13 +40,23 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        User user = mUsers.get(position);
+        final User user = mUsers.get(position);
         holder.username.setText(user.getFullname());
         if(user.getImageURL().equals("default")) {
             holder.profilePhoto.setImageResource(R.mipmap.ic_launcher);
         } else {
             Glide.with(mContext).load(user.getImageURL()).into(holder.profilePhoto);
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                intent.putExtra("userId", user.getId());
+                mContext.startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -64,7 +76,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            username = itemView.findViewById(R.id.username);
+            username = itemView.findViewById(R.id.fullname);
             profilePhoto = itemView.findViewById(R.id.profileImage);
             category = itemView.findViewById(R.id.category);
         }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "208318838827",
+    "firebase_url": "https://agrarchat.firebaseio.com",
+    "project_id": "agrarchat",
+    "storage_bucket": "agrarchat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208318838827:android:8263a1a181369ec308526e",
+        "android_client_info": {
+          "package_name": "com.example.agrarchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208318838827-dm1036fo3luhf9kgh4omad1gko9abigr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agrarchat",
+            "certificate_hash": "efcc64f33c7bdfdbd839dfbb88990bcd670da1fd"
+          }
+        },
+        {
+          "client_id": "208318838827-cn48pbdc8r48vq8gsn89uq4g0e5l5i7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXpItCMVZVD2L9_vCzdtoV_FFZvjBioRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208318838827-cn48pbdc8r48vq8gsn89uq4g0e5l5i7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
